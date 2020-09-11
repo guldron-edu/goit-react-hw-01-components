@@ -1,0 +1,23 @@
+body {
+  padding-top: 100px;
+  background-color: #d9eef2;
+  padding-bottom: 100px;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+th {
+  padding: 0;
+}
