@@ -1,0 +1,15 @@
+.cell {
+  text-transform: capitalize;
+  height: 50px;
+  width: 290px;
+  text-align: center;
+  font-size: 15px;
+  color: rgb(92, 105, 117);
+}
+
+tr:nth-child(2n-1) {
+  background-color: #fff;
+}
+tr:nth-child(2n) {
+  background-color: #ecf2f3;
+}

@@ -1,7 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Statistics.module.css';
-import getRandomColor from '../../js/colorCanger';
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./Statistics.module.css";
+import getRandomColor from "../../js/colorCanger";
+import SingleStatistics from "../SingleStatistics/SingleStatistics";
 
 function Statistics({ title, stats }) {
   return (
@@ -9,14 +10,13 @@ function Statistics({ title, stats }) {
       {title && <h2 className={styles.title}>{title}</h2>}
 
       <ul className={styles.statList}>
-        {stats.map(obj => (
+        {stats.map((sample) => (
           <li
-            key={obj.id}
+            key={sample.id}
             style={{ backgroundColor: getRandomColor() }}
             className={styles.item}
           >
-            <span className={styles.label}>{obj.label}</span>
-            <span className={styles.percentage}>{obj.percentage}</span>
+            <SingleStatistics sample={sample} />
           </li>
         ))}
       </ul>
@@ -24,14 +24,20 @@ function Statistics({ title, stats }) {
   );
 }
 
+Statistics.defaultProps = {
+  stats: [
+    {
+      percentage: 10,
+    },
+  ],
+};
+
 Statistics.propTypes = {
   title: PropTypes.string,
   stats: PropTypes.arrayOf(
-    PropTypes.exact({
+    PropTypes.shape({
       id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-    }),
+    })
   ).isRequired,
 };
 
